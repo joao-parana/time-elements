@@ -104,23 +104,23 @@
     var hr = Math.round(min / 60);
     var day = Math.round(hr / 24);
     if (ms < 0) {
-      return 'just now';
+      return 'agora';
     } else if (sec < 10) {
-      return 'just now';
+      return 'agora';
     } else if (sec < 45) {
-      return sec + ' seconds ago';
+      return sec + ' segundos atrás';
     } else if (sec < 90) {
-      return 'a minute ago';
+      return 'um minuto atrás';
     } else if (min < 45) {
-      return min + ' minutes ago';
+      return min + ' minutos atrás';
     } else if (min < 90) {
-      return 'an hour ago';
+      return 'uma hora atrás';
     } else if (hr < 24) {
-      return hr + ' hours ago';
+      return hr + ' horas atrás';
     } else if (hr < 36) {
-      return 'a day ago';
+      return 'um dia atrás';
     } else if (day < 30) {
-      return day + ' days ago';
+      return day + ' dias atrás';
     } else {
       return null;
     }
@@ -135,31 +135,31 @@
     var month = Math.round(day / 30);
     var year = Math.round(month / 12);
     if (ms < 0) {
-      return 'just now';
+      return 'agora';
     } else if (sec < 10) {
-      return 'just now';
+      return 'agora';
     } else if (sec < 45) {
-      return sec + ' seconds ago';
+      return sec + ' segungos atrás';
     } else if (sec < 90) {
-      return 'a minute ago';
+      return 'um minuto atrás';
     } else if (min < 45) {
-      return min + ' minutes ago';
+      return min + ' minutos atrás';
     } else if (min < 90) {
-      return 'an hour ago';
+      return 'uma hora atrás';
     } else if (hr < 24) {
-      return hr + ' hours ago';
+      return hr + ' horas atrás';
     } else if (hr < 36) {
-      return 'a day ago';
+      return 'um dia atrás';
     } else if (day < 30) {
-      return day + ' days ago';
+      return day + ' dias atrás';
     } else if (day < 45) {
-      return 'a month ago';
+      return 'um mês atrás';
     } else if (month < 12) {
-      return month + ' months ago';
+      return month + ' meses atrás';
     } else if (month < 18) {
-        return 'a year ago';
+        return 'um ano atrás';
     } else {
-      return year + ' years ago';
+      return year + ' anos atrás';
     }
   };
 
