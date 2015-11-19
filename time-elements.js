@@ -139,7 +139,7 @@
     } else if (sec < 10) {
       return 'agora';
     } else if (sec < 45) {
-      return sec + ' segungos atrás';
+      return sec + ' segundos atrás';
     } else if (sec < 90) {
       return 'um minuto atrás';
     } else if (min < 45) {
