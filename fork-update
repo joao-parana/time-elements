@@ -1,0 +1,43 @@
+#!/bin/bash
+
+set -e
+
+# Criado em: date
+# Last Change: date
+# Instituicao: CEPEL
+# Proposito do script: Atualizar um Fork em https://github.com/joao-parana
+# Autor: joao.parana@gmail.com 
+# site: http://joao-parana.com.br 
+# 
+
+# se o usuário não digitar um parâmetro será exibido uma explicação
+
+how_to_use() {
+  cat <<-EOF
+  |
+  | Este Script Bash cumpre o propósito de Atualizar um Fork
+  | em https://github.com/joao-parana/repositório à partir
+  | de um upstream
+  |
+  | Como usar: fork-update repositório upstream
+  | 
+  | Exemplo: fork-update time-elements github/time-elements
+  | 
+EOF
+  exit 1
+}
+
+# testa se foram digitados exatamente dois parâmetros
+if [ $# != 2 ]; then
+  how_to_use
+fi
+
+git clone git@github.com:joao-parana/$1.git
+cd $1
+# Usar URL read-only no git remote:
+# 
+git remote add upstream git://github.com/$2.git
+# obter alterações e fazer o merge
+git fetch upstream
+git checkout master
+git merge upstream/master
