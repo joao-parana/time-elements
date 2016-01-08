@@ -1,2 +1,3 @@
 bower_components/
 node_modules/
+ssh-keys/[a-z]*
