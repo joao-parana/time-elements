@@ -1,0 +1,46 @@
+#!/bin/bash
+# Criado em: 2016-01-08
+# Modificado em: 2016-01-08
+# Proposito do script: Este script inicia o npm e o bower no diretorio da aplicação via ENTRYPOINT
+# Autor: João Antonio Ferreira <joao.parana@gmail.com>
+# site: http://joao-parana.com.br
+#
+
+# caso o usuário não digite um parâmetro será exibido uma explicação
+usage()   {
+
+  cat <<-EOF
+    |
+    | Este ENTRYPOINT cumpre o propósito de iniciar o npm e o bower no diretorio da aplicação
+    |
+    | Como usar : docker run -i -t --name time_elements parana/time-elements
+    |        ou : docker run -i -t --name time_elements parana/time-elements help
+    |        ou : docker run -i -t --name time_elements parana/time-elements go
+    |
+EOF
+  read -p 'pressione uma tecla para sair ou bash para entrar numa shell: ' escolha
+  # echo "escolha = $escolha"
+  if [ .$escolha = ."bash" ]; then
+    echo "••• `date` - Iniciando a Shell Bash. Divirta-se"
+    /bin/bash
+  fi
+  exit 1
+}
+
+# testa se foi digitado algum parâmetro
+if [ $# != 1 ]; then
+  usage
+  exit 1
+fi
+
+if [ .$1 = ."go" ]; then
+  if [ -f "/.app-instaled" ]; then
+    echo "••• `date` - Execute bower install e siga no Workflow padrão"
+    echo "••• `date` - Depois Execute o comando abaixo para instalar a credencial par o Bitbucket"
+    echo "alias ssh-wc='eval \`ssh-agent -s\` && ssh-add -D && ssh-add ~/.ssh/id_rsa_paranacepelbr  && ssh -T git@github.com && ssh -T git@bitbucket.org' "
+    /bin/bash
+  else
+    echo "••• `date` - Você informou parâmetro $1"
+  fi
+fi
+usage

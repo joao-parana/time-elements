@@ -1,5 +1,24 @@
 # &lt;time&gt; element extensions
 
+## Running on a Docker container
+
+### Challenges
+
+* We have to use a specific user such as `dev` or `homolog` because the user `root` can't run `bower install`
+* We need to initially install things using user `root`
+
+### Building image
+
+    cd time-elements
+    docker pull node:argon-slim
+    docker build -t parana/time-elements .
+
+### Run the container
+
+    docker run -i -t --name time_elements parana/time-elements
+
+## Description
+
 Formats a timestamp as a localized string or as relative text that auto-updates in the user's browser.
 
 This allows the server to cache HTML fragments containing dates and lets the browser choose how to localize the displayed time according to the user's preferences. For example, the server may have cached the following generated markup:
